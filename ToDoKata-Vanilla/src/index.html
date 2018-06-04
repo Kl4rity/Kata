@@ -10,15 +10,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
+        <div id="sidebar">
                 <h1>ToDo-App</h1>
                 <div class="navigation">
                 <h3>Due...</h3>
                 <hr>
                 <ul id="dueTimes">
-                    <li>Today</li>
-                    <li>Week</li>
-                    <li>Month</li>
+                    <li id="filterByToday">Today</li>
+                    <li id="filterByWeek">Week</li>
+                    <li id="filterByMonth">Month</li>
                 </ul>
 
                 <h3>Responsible...</h3>
@@ -31,13 +31,13 @@
                 <h3>Status...</h3>
                 <hr>
                 <ul id="statusType">
-                    <li>Backlog</li>
-                    <li>In Progress</li>
-                    <li>Done</li>
+                    <li id="filterByBacklog">Backlog</li>
+                    <li id="filterByInProgress">In Progress</li>
+                    <li id="filterByDone">Done</li>
                 </ul>
             </div>
         </div>
-        <div class="mainView">
+        <div id="mainView">
             <div class="todoCard">
                 <h3>Title</h3>
                 <p>Lorem ipsum dolor sit amet populus properat mir ist langweilig und ich muss mir hier einen Text hineinschreiben damit ich es tatsächlich testen kann.</p>
@@ -98,8 +98,8 @@
                             <button class="done">-> Done</button>
                 </div>
             </div>
-            <button id="addTodo">+</button>
         </div>
+        <button id="addTodo">+</button>
     </div>
 </body>
 </html>
