@@ -33,6 +33,10 @@ var viewHandler = {
             document.getElementById("addToDoDialogueBox").setAttribute("style", "display: none");
             viewHandler.clearAddToDoFormContent();
         });
+        document.getElementById("executeAddToDo").addEventListener("click", ()=>{
+            viewHandler.addToDo();
+            viewHandler.clearAddToDoFormContent();
+        });
     }
     , refreshListOfToDos : function(lsOfToDos){
         viewHandler.clearListOfTodos();
@@ -68,7 +72,7 @@ var viewHandler = {
 
                 dnNewToDoMetaBarDueDate = document.createElement("div");
                 dnNewToDoMetaBarDueDate.classList += "dueDate inline-block";
-                dnNewToDoMetaBarDueDate.innerHTML = ToDo.dueDate.toLocaleDateString();
+                dnNewToDoMetaBarDueDate.innerHTML = ToDo.dueDate;
                 dnNewToDoMetaBar.appendChild(dnNewToDoMetaBarDueDate);
 
                 dnNewToDoDoneButton = document.createElement("button");
@@ -81,8 +85,22 @@ var viewHandler = {
             dnToDoListMainView.appendChild(dnNewToDo);
         });
     }
-    , fetchToDoInputData : function(){
+    , addToDo : function(){
+        var formDataValid = true;
+        
+        var title = document.getElementById("addToDoTitle").value;
+        var content = document.getElementById("addToDoContent").value;
+        var responsible = document.getElementById("addToDoResponsible").value;
+        var dueDate = document.getElementById("addToDoDueDate").value;
+        var timeEstimate = document.getElementById("addToDoEstimate").value;
 
+        if (title == null || content == null || responsible == null || dueDate == null || timeEstimate == null) {
+            formDataValid = false;
+        }
+
+        if(formDataValid){
+            ToDoModel.addToDo(title, content, responsible, dueDate, timeEstimate);
+        };
     }
     , clearListOfTodos : function(){
         dnToDoListMainView = document.getElementById("mainView");
@@ -132,9 +150,9 @@ class ToDo {
 }
 
 function init(){
-    ToDoModel.addToDo("1st Todo", "Working with plain JS can be fun.", "Clemens Stift", new Date(2018, 4, 28), 4);
-    ToDoModel.addToDo("2nd Todo", "Should you be motivated to figure out why all the frameworks exist.", "Marlon Alagoda", new Date(2018, 4, 30), 2);
-    ToDoModel.addToDo("3rd Todo", "Before switching to learn more about ReactJS", "Julian Tandler", new Date(2018, 5, 2), 2);
+    // ToDoModel.addToDo("1st Todo", "Working with plain JS can be fun.", "Clemens Stift", new Date(2018, 4, 28), 4);
+    // ToDoModel.addToDo("2nd Todo", "Should you be motivated to figure out why all the frameworks exist.", "Marlon Alagoda", new Date(2018, 4, 30), 2);
+    // ToDoModel.addToDo("3rd Todo", "Before switching to learn more about ReactJS", "Julian Tandler", new Date(2018, 5, 2), 2);
 
     console.log(document.getElementById("addToDoTitle"));
 
