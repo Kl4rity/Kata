@@ -138,12 +138,13 @@
     height: 70%;
     margin: auto;
     background-color: white;
-    display: block;
     top: 10%;
     transform: translateY(-50%);
     transform: translateX(50%);
     position: absolute;
     overflow-y: scroll;
+    z-index:3;
+    display: none;
 }
 
 #ToDoForm {
@@ -178,10 +179,8 @@
 }
 
 #executeAddToDo {
-    position: fixed;
+    position: block;
     display: block;
-    bottom: 20px;
-    right: 20px;
     background:darkred;
     color:white;
     font-size:20px;
@@ -189,6 +188,10 @@
     text-align: center;
     width: 100px;
     border: none;
+    float: right;
+    margin-top: 80px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 ::-webkit-scrollbar { 
