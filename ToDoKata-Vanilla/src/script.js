@@ -37,6 +37,19 @@ var viewHandler = {
             viewHandler.addToDo();
             viewHandler.clearAddToDoFormContent();
         });
+        viewHandler.initializeDoneListener();
+    }
+    , initializeDoneListener : function() {
+
+        var listOfNodes = document.getElementsByClassName("done");
+        Array.from(listOfNodes).forEach((dn) => {
+            dn.removeEventListener("click", (e)=>{
+                console.log(e.target);
+            });
+            dn.addEventListener("click", (e)=>{
+                console.log(e.target);
+            });
+          });
     }
     , refreshListOfToDos : function(lsOfToDos){
         viewHandler.clearListOfTodos();
@@ -100,6 +113,7 @@ var viewHandler = {
 
         if(formDataValid){
             ToDoModel.addToDo(title, content, responsible, dueDate, timeEstimate);
+            viewHandler.initializeDoneListener();
         };
     }
     , clearListOfTodos : function(){
@@ -153,8 +167,6 @@ function init(){
     // ToDoModel.addToDo("1st Todo", "Working with plain JS can be fun.", "Clemens Stift", new Date(2018, 4, 28), 4);
     // ToDoModel.addToDo("2nd Todo", "Should you be motivated to figure out why all the frameworks exist.", "Marlon Alagoda", new Date(2018, 4, 30), 2);
     // ToDoModel.addToDo("3rd Todo", "Before switching to learn more about ReactJS", "Julian Tandler", new Date(2018, 5, 2), 2);
-
-    console.log(document.getElementById("addToDoTitle"));
 
     viewHandler.initEventListeners();
 }
