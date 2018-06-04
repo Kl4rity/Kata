@@ -1,0 +1,119 @@
+.container{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.sidebar{
+    position: absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    height: 100%;
+    background-color:darkred;
+    color:white;
+    width: 25%;
+    overflow-y:scroll;
+}
+
+.sidebar h1 {
+    text-align: center;
+}
+
+.navigation {
+    padding-left:10%;
+    padding-right:10%;
+}
+
+.navigation h3 {
+    margin-bottom:7px;
+}
+
+.navigation ul {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.navigation ul li {
+    margin-bottom: 10px;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.mainView{
+    position: absolute;
+    right: 0px;
+    top:0px;
+    bottom:0px;
+    width: 69%;
+    height:100%;
+    overflow-y:scroll;
+    padding-left:3%;
+    padding-right:3%;
+}
+
+#addTodo {
+    background:darkred;
+    color:white;
+    font-size:30px;
+    border: none;
+    width: 50px;
+    height: 50px;
+    padding-bottom: 5px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.todoCard {
+    margin-top: 30px;
+    display: block;
+    box-shadow: 0px 1px 3px;
+}
+
+.todoCard p {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.todoCard h3 {
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: darkred;
+}
+
+.inline-block {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+}
+
+.metaBar {
+    width: 100%;
+    color: white;
+    position: relative;
+    left:0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: darkred;
+    margin:0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.done {
+    display: inline-block;
+    text-align: center;
+    width: 23%;
+    border:none;
+    background-color: inherit;
+    color:white;
+    margin:0;
+    font-size: 15px;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
