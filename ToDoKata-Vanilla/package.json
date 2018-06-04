@@ -1,0 +1,14 @@
+{
+  "name": "todokata1",
+  "version": "1.0.0",
+  "description": "Practice",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "KAta"
+  ],
+  "author": "Kl4rity",
+  "license": "ISC"
+}

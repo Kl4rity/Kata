@@ -38,68 +38,28 @@
             </div>
         </div>
         <div id="mainView">
-            <div class="todoCard">
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet populus properat mir ist langweilig und ich muss mir hier einen Text hineinschreiben damit ich es tatsächlich testen kann.</p>
-                <div class="metaBar">
-                        <div class="owner inline-block">Clemens Stift</div>
-                        <div class="estimate inline-block">3 hours</div>
-                        <div class="dueDate inline-block">22-02-1992</div>
-                        <button class="done">-> Done</button>
-                </div>
-            </div>
-            <div class="todoCard">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet populus properat mir ist langweilig und ich muss mir hier einen Text hineinschreiben damit ich es tatsächlich testen kann.</p>
-                    <div class="metaBar">
-                            <div class="owner inline-block">Clemens Stift</div>
-                            <div class="estimate inline-block">3 hours</div>
-                            <div class="dueDate inline-block">22-02-1992</div>
-                            <button class="done">-> Done</button>
-                </div>
-            </div>
-            <div class="todoCard">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet populus properat mir ist langweilig und ich muss mir hier einen Text hineinschreiben damit ich es tatsächlich testen kann.</p>
-                    <div class="metaBar">
-                            <div class="owner inline-block">Clemens Stift</div>
-                            <div class="estimate inline-block">3 hours</div>
-                            <div class="dueDate inline-block">22-02-1992</div>
-                            <button class="done">-> Done</button>
-                </div>
-            </div>
-            <div class="todoCard">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet populus properat mir ist langweilig und ich muss mir hier einen Text hineinschreiben damit ich es tatsächlich testen kann.</p>
-                    <div class="metaBar">
-                            <div class="owner inline-block">Clemens Stift</div>
-                            <div class="estimate inline-block">3 hours</div>
-                            <div class="dueDate inline-block">22-02-1992</div>
-                            <button class="done">-> Done</button>
-                </div>
-            </div>
-            <div class="todoCard">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet populus properat mir ist langweilig und ich muss mir hier einen Text hineinschreiben damit ich es tatsächlich testen kann.</p>
-                    <div class="metaBar">
-                            <div class="owner inline-block">Clemens Stift</div>
-                            <div class="estimate inline-block">3 hours</div>
-                            <div class="dueDate inline-block">22-02-1992</div>
-                            <button class="done">-> Done</button>
-                </div>
-            </div>
-            <div class="todoCard">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet populus properat mir ist langweilig und ich muss mir hier einen Text hineinschreiben damit ich es tatsächlich testen kann.</p>
-                    <div class="metaBar">
-                            <div class="owner inline-block">Clemens Stift</div>
-                            <div class="estimate inline-block">3 hours</div>
-                            <div class="dueDate inline-block">22-02-1992</div>
-                            <button class="done">-> Done</button>
-                </div>
-            </div>
+            
         </div>
         <button id="addTodo">+</button>
+    </div>
+    <div id="addToDoOverlay">
+        <div id="addToDoDialogueBox">
+            <div id="ToDoForm">
+                <h4>Title</h4>
+                <input type="text" id="addToDoTitle">
+                <h4>Description</h4>
+                <textarea name="content" id="addToDoContent" cols="30" rows="3"></textarea>
+                <h4>Owner</h4>
+                <input type="text" id="addToDoResponsible">
+                <h4>Due date</h4>
+                <input type="date" id="addToDoDueDate">
+                <h4>Hours estimated</h4>
+                <input type="number" id="addToDoEstimate">
+            </div>
+            <button id="executeAddToDo">
+                Add
+            </button>
+        </div>
     </div>
 </body>
 </html>

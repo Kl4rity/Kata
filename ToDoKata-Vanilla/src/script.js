@@ -38,7 +38,7 @@ var viewHandler = {
         });
     }
     , displayNewToDoDialogue : function() {
-
+        // Write dialogue into html file and hide it by default.
     }
     , refreshListOfToDos : function(lsOfToDos){
         viewHandler.clearListOfTodos();
@@ -95,6 +95,9 @@ var viewHandler = {
         while(dnToDoListMainView.firstChild) {
             dnToDoListMainView.removeChild(dnToDoListMainView.firstChild);
         }
+    }
+    , buildResponsiblesList : function() {
+        
     }
 
 }
