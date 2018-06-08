@@ -14,14 +14,9 @@ var viewHandler = {
             console.log("Filter by this month");
             ToDoModel.filterListOfToDosByDate(30);
         });
-        document.getElementById("filterByBacklog").addEventListener("click", ()=>{
-            console.log("Filter by Backlog");
-        });
-        document.getElementById("filterByInProgress").addEventListener("click", ()=>{
-            console.log("Filter by In Progress");
-        });
-        document.getElementById("filterByDone").addEventListener("click", ()=>{
-            console.log("Filter by Done");
+        document.getElementById("clearFilters").addEventListener("click", ()=>{
+            console.log("Clear Filters");
+            viewHandler.refreshListOfToDos(ToDoModel.lsToDos);
         });
         document.getElementById("addTodo").addEventListener("click", ()=>{
             console.log("AddToDoPressed");
