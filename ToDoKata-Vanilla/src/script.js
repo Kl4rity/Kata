@@ -37,9 +37,9 @@ var viewHandler = {
             viewHandler.addToDo();
             viewHandler.clearAddToDoFormContent();
         });
-        viewHandler.initializeDoneListener();
+        viewHandler.initializeDoneListeners();
     }
-    , initializeDoneListener : function() {
+    , initializeDoneListeners : function() {
 
         var listOfNodes = document.getElementsByClassName("done");
         Array.from(listOfNodes).forEach((dn) => {
@@ -51,13 +51,10 @@ var viewHandler = {
             });
           });
     }
-    , refreshListOfToDos : function(lsOfToDos){
-        viewHandler.clearListOfTodos();
-
+    , renderToDoCard : function(ToDo){
         dnToDoListMainView = document.getElementById("mainView");
 
-        lsOfToDos.forEach((ToDo)=>{
-            dnNewToDo = document.createElement("div");
+        dnNewToDo = document.createElement("div");
             dnNewToDo.classList += "todoCard";
 
             dnNewToDoHeader = document.createElement("h3");
@@ -96,6 +93,11 @@ var viewHandler = {
             dnNewToDo.appendChild(dnNewToDoMetaBar);
 
             dnToDoListMainView.appendChild(dnNewToDo);
+    }
+    , refreshListOfToDos : function(lsOfToDos){
+        viewHandler.clearListOfTodos();
+        lsOfToDos.forEach((ToDo)=>{
+            viewHandler.renderToDoCard(ToDo);
         });
     }
     , addToDo : function(){
@@ -113,7 +115,7 @@ var viewHandler = {
 
         if(formDataValid){
             ToDoModel.addToDo(title, content, responsible, dueDate, timeEstimate);
-            viewHandler.initializeDoneListener();
+            viewHandler.initializeDoneListeners();
         };
     }
     , clearListOfTodos : function(){
@@ -141,6 +143,7 @@ var ToDoModel = {
         var newToDo = new ToDo(strTitle, strContent, strResponsible, dueDate, timeEstimate);
         ToDoModel.lsToDos.push(newToDo);
         viewHandler.refreshListOfToDos(ToDoModel.lsToDos);
+        localStorage.setItem("ToDoList", JSON.stringify(ToDoModel.lsToDos));
     }
     , filterListOfToDosByDate : function(date){
 
@@ -164,9 +167,14 @@ class ToDo {
 }
 
 function init(){
-    // ToDoModel.addToDo("1st Todo", "Working with plain JS can be fun.", "Clemens Stift", new Date(2018, 4, 28), 4);
-    // ToDoModel.addToDo("2nd Todo", "Should you be motivated to figure out why all the frameworks exist.", "Marlon Alagoda", new Date(2018, 4, 30), 2);
-    // ToDoModel.addToDo("3rd Todo", "Before switching to learn more about ReactJS", "Julian Tandler", new Date(2018, 5, 2), 2);
-
+    if (localStorage.getItem("ToDoList")){
+        if(localStorage.getItem("ToDoList").length <= 1){
+            ToDoModel.lsToDos.push(JSON.parse(localStorage.getItem("ToDoList")));
+            viewHandler.refreshListOfToDos(ToDoModel.lsToDos);
+        } else {
+            ToDoModel.lsToDos = JSON.parse(localStorage.getItem("ToDoList"));
+            viewHandler.refreshListOfToDos(ToDoModel.lsToDos);
+        }
+    }
     viewHandler.initEventListeners();
 }
