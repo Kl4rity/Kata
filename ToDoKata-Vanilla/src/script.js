@@ -44,10 +44,12 @@ var viewHandler = {
         var listOfNodes = document.getElementsByClassName("done");
         Array.from(listOfNodes).forEach((dn) => {
             dn.removeEventListener("click", (e)=>{
-                console.log(e.target);
+                console.log(e.target.parentNode.parentNode);
+                viewHandler.removeToDo(e.target.parentNode.parentNode.getAttribute("index"));
             });
             dn.addEventListener("click", (e)=>{
-                console.log(e.target);
+                console.log(e.target.parentNode.parentNode);
+                viewHandler.removeToDo(e.target.parentNode.parentNode.getAttribute("index"));
             });
           });
     }
@@ -56,6 +58,7 @@ var viewHandler = {
 
         dnNewToDo = document.createElement("div");
             dnNewToDo.classList += "todoCard";
+            dnNewToDo.setAttribute("index", ToDo.index);
 
             dnNewToDoHeader = document.createElement("h3");
             dnNewToDoHeader.innerHTML = ToDo.title;
@@ -134,19 +137,25 @@ var viewHandler = {
         document.getElementById("addToDoDueDate").value = "";
         document.getElementById("addToDoEstimate").value = "";
     }
+    , removeToDo : function(index){
+        ToDoModel.lsToDos.splice(index, 1);
+        viewHandler.refreshListOfToDos(ToDoModel.lsToDos);
+        localStorage.setItem("ToDoList", JSON.stringify(ToDoModel.lsToDos));
+    }
 
 }
 
 var ToDoModel = {
     lsToDos : []
     , addToDo : function (strTitle, strContent, strResponsible, dueDate, timeEstimate) {
-        var newToDo = new ToDo(strTitle, strContent, strResponsible, dueDate, timeEstimate);
+        intIndex = ToDoModel.lsToDos.length;
+        var newToDo = new ToDo(intIndex, strTitle, strContent, strResponsible, dueDate, timeEstimate);
         ToDoModel.lsToDos.push(newToDo);
         viewHandler.refreshListOfToDos(ToDoModel.lsToDos);
         localStorage.setItem("ToDoList", JSON.stringify(ToDoModel.lsToDos));
     }
     , filterListOfToDosByDate : function(date){
-
+        
     }
     , filterListOfToDosByResponsible : function(strResponsible){
 
@@ -157,7 +166,8 @@ var ToDoModel = {
 }
 
 class ToDo {
-    constructor(strTitle, strContent, strResponsible, dueDate, timeEstimate){
+    constructor(intIndex, strTitle, strContent, strResponsible, dueDate, timeEstimate){
+        this.index = intIndex;
         this.title = strTitle;
         this.content = strContent;
         this.responsible = strResponsible;
