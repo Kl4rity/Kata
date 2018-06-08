@@ -33,6 +33,7 @@ var viewHandler = {
             viewHandler.clearAddToDoFormContent();
         });
         viewHandler.initializeDoneListeners();
+        viewHandler.populateResponsibleSidebar(viewHandler.buildResponsiblesList());
     }
     , initializeDoneListeners : function() {
 
@@ -123,7 +124,31 @@ var viewHandler = {
         }
     }
     , buildResponsiblesList : function() {
-
+        lsResponsibles = [];
+        ToDoModel.lsToDos.forEach(function(ToDo){
+            if (lsResponsibles.indexOf(ToDo.responsible) < 0){
+                lsResponsibles.push(ToDo.responsible);
+            }
+        });
+        return lsResponsibles;
+    }
+    , populateResponsibleSidebar : function(lsResponsibles){
+        viewHandler.clearResponsibleSidebar();
+        dnResponsibleSidebar = document.getElementById("responsiblePeople");
+        lsResponsibles.forEach(function(responsible){
+            newResponsible = document.createElement("li");
+            newResponsible.innerHTML = responsible;
+            newResponsible.addEventListener("click", function(e){
+                ToDoModel.filterListOfToDosByResponsible(e.target.innerHTML);
+            });
+            dnResponsibleSidebar.appendChild(newResponsible);
+        });
+    }
+    , clearResponsibleSidebar : function(){
+        dnResponsibleSidebar = document.getElementById("responsiblePeople");
+        while(dnResponsibleSidebar.firstChild) {
+            dnResponsibleSidebar.removeChild(dnResponsibleSidebar.firstChild);
+        }
     }
     , clearAddToDoFormContent : function(){
         document.getElementById("addToDoTitle").value = "";
@@ -163,10 +188,14 @@ var ToDoModel = {
         viewHandler.refreshListOfToDos(filteredList);
     }
     , filterListOfToDosByResponsible : function(strResponsible){
-
-    }
-    , filterListOfToDosByStatus : function(statusIdenitifier){
-
+        filteredList = ToDoModel.lsToDos.filter(function(ToDo){
+            if(ToDo.responsible == strResponsible){
+                return true;
+            } else {
+                return false;
+            }
+        });
+        viewHandler.refreshListOfToDos(filteredList);
     }
 }
 
