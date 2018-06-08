@@ -4,15 +4,15 @@ var viewHandler = {
     initEventListeners : function () {
         document.getElementById("filterByToday").addEventListener("click", ()=>{
             console.log("Filter by today");
-            ToDoModel.filterListOfToDosByDate();
+            ToDoModel.filterListOfToDosByDate(1);
         });
         document.getElementById("filterByWeek").addEventListener("click", ()=>{
             console.log("Filter by this week");
-            ToDoModel.filterListOfToDosByDate();
+            ToDoModel.filterListOfToDosByDate(7);
         });
         document.getElementById("filterByMonth").addEventListener("click", ()=>{
             console.log("Filter by this month");
-            ToDoModel.filterListOfToDosByDate();
+            ToDoModel.filterListOfToDosByDate(30);
         });
         document.getElementById("filterByBacklog").addEventListener("click", ()=>{
             console.log("Filter by Backlog");
@@ -154,8 +154,18 @@ var ToDoModel = {
         viewHandler.refreshListOfToDos(ToDoModel.lsToDos);
         localStorage.setItem("ToDoList", JSON.stringify(ToDoModel.lsToDos));
     }
-    , filterListOfToDosByDate : function(date){
-        
+    , filterListOfToDosByDate : function(daysFromNow){
+        filterDate = new Date(Date.now());
+        filterDate.setDate(filterDate.getDate() + daysFromNow);
+        var filteredList = ToDoModel.lsToDos.filter(function(entry){
+            entryDueDate = new Date(entry.dueDate);
+            if (entryDueDate < filterDate){
+                return true;
+            } else {
+                return false;
+            }
+        });
+        viewHandler.refreshListOfToDos(filteredList);
     }
     , filterListOfToDosByResponsible : function(strResponsible){
 
