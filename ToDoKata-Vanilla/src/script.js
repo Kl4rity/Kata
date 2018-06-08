@@ -98,6 +98,8 @@ var viewHandler = {
         lsOfToDos.forEach((ToDo)=>{
             viewHandler.renderToDoCard(ToDo);
         });
+        viewHandler.populateResponsibleSidebar(viewHandler.buildResponsiblesList());
+
     }
     , addToDo : function(){
         var formDataValid = true;
