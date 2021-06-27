@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: com.example
+defaultPackage: org.cstift.kata
 testFramework: kotest
 sourceLanguage: kotlin
 buildTool: gradle_kotlin

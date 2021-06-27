@@ -1,4 +1,4 @@
-package com.example.application
+package org.cstift.kata.application
 
 data class ToDoItem (
     val content: String

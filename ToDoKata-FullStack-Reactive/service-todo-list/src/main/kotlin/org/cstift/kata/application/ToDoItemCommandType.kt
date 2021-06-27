@@ -1,4 +1,4 @@
-package com.example.application
+package org.cstift.kata.application
 
 enum class ToDoItemCommandType {
     CREATE,

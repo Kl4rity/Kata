@@ -1,4 +1,4 @@
-package com.example.application
+package org.cstift.kata.application
 
 data class ToDoItemCommand (
     val type : ToDoItemCommandType,

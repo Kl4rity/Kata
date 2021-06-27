@@ -7,7 +7,7 @@ plugins {
 }
 
 version = "0.1"
-group = "com.example"
+group = "org.cstift.kata"
 
 val kotlinVersion=project.properties.get("kotlinVersion")
 repositories {
@@ -19,7 +19,7 @@ micronaut {
     testRuntime("kotest")
     processing {
         incremental(true)
-        annotations("com.example.*")
+        annotations("org.cstift.kata.*")
     }
 }
 
@@ -42,7 +42,7 @@ dependencies {
 
 
 application {
-    mainClass.set("com.example.ApplicationKt")
+    mainClass.set("org.cstift.kata.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")

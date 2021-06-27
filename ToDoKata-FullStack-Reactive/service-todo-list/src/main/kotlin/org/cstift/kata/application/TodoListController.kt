@@ -1,4 +1,4 @@
-package com.example.application
+package org.cstift.kata.application
 
 import io.micronaut.websocket.WebSocketBroadcaster
 import io.micronaut.websocket.annotation.OnMessage
