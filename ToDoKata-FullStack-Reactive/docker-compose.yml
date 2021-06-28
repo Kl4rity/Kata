@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  backend:
+    image: service-todolist-micronaut-sockets
+    ports:
+      - "8080:8080"

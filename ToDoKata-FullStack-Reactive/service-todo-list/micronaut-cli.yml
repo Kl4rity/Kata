@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: org.cstift.kata
+testFramework: kotest
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, config4k, gradle, http-client, kotest, kotlin, kotlin-application, kotlin-extension-functions, logback, netty-server, reactor, readme, shade, testcontainers]
