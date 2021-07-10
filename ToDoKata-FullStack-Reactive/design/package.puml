@@ -1,0 +1,28 @@
+@startuml
+
+package Todos {
+    class TodoList {
+        id: UUID
+        title: String
+        todos: Todo[]
+        users: UUID[]
+    }
+
+    class Todo {
+        id: UUD
+        title: String
+        fullText: String
+        assignedUser: UUID
+    }
+}
+
+package User {
+    class User {
+        id: UUID
+        firstName: String
+        lastName: String
+        alias: String
+        profilePicture: bytes
+    }
+}
+@enduml
