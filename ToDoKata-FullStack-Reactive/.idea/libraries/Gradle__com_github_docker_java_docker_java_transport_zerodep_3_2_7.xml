@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.docker-java:docker-java-transport-zerodep:3.2.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.docker-java/docker-java-transport-zerodep/3.2.7/d74cb05fabc57e9ec441dc39d0bc58ad649fad3d/docker-java-transport-zerodep-3.2.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.docker-java/docker-java-transport-zerodep/3.2.7/425d51effc376db50048c64c1c0d09d4df7ceb05/docker-java-transport-zerodep-3.2.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

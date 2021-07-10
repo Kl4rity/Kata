@@ -1,0 +1,30 @@
+@startuml
+component "Angular Frontend" {
+    component "Apollo Client" as c1
+}
+
+component "Appollo Federation" as federation
+
+component "TodoList Service" as todo {
+    component "Apollo" as a1
+    component "Application" as app1
+    component "H2" as h1
+}
+
+component "User Service" as user {
+    component "Apollo" as a2
+    component "Application" as app2
+    component "H2" as h2
+}
+
+c1 --> federation
+federation --> todo
+federation --> user
+
+a1 --> app1
+app1 --> h1
+
+a2 --> app2
+app2 --> h2
+
+@enduml

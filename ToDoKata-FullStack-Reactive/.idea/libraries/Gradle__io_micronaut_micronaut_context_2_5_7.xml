@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.micronaut:micronaut-context:2.5.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-context/2.5.7/24ef171cac7723a465a573a7f67c24052b67f878/micronaut-context-2.5.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-context/2.5.7/e28339ee87a357eba1946c01d7247a8bc1045cc8/micronaut-context-2.5.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
